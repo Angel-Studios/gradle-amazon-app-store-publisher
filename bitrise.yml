@@ -13,7 +13,7 @@ workflows:
         - destination: gradle.properties
         - source: "$BITRISEIO_gradle_properties_URL"
     - script@1:
-        title: Do anything with Script step
+        title: Build and Publish
         inputs:
         - content: |-
             #!/usr/bin/env bash
@@ -29,7 +29,7 @@ workflows:
         run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
     - git-clone@6: {}
     - script@1:
-        title: Do anything with Script step
+        title: Build
         inputs:
         - content: |-
             #!/usr/bin/env bash

@@ -1,4 +1,6 @@
-# Amazon App Store Deploy Plugin
+[![Build Status](https://app.bitrise.io/app/3ce7e2239b1826d3/status.svg?token=O5wm3Ldl0PISWns-Uc0I7w&branch=master)](https://app.bitrise.io/app/3ce7e2239b1826d3)  
+
+# Amazon App Store Deploy Plugin -
 Plugin for delivering APK artifacts to the Amazon App Store as new Edits.
 
 This plugin is a fork of [gradle-amazon-app-store-publisher](https://github.com/BrantApps/gradle-amazon-app-store-publisher) seeking to update it for Gradle 7+ and clean up the plugin such that it is easier to maintain.
