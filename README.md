@@ -9,8 +9,8 @@ This plugin is a fork of [gradle-amazon-app-store-publisher](https://github.com/
       ```json
       {
           "grant_type": "client_credentials",
-          "client_id": "amzn1.application-oa2-client.ae941846cdd745e9a53319f7bb98d435",
-          "client_secret": "41d135b2b02ce5f2fbf7643a66477c089fcc1d88d11f69d3e4a6285b917ca35d",
+          "client_id": "amzn1.application-oa2-client.<id>",
+          "client_secret": "<secret from web settings tab of security profile>",
           "scope": "appstore::apps:readwrite"
       }
       ```
