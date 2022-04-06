@@ -66,7 +66,7 @@ meta:
     stack: linux-docker-android-20.04
     machine_type_id: standard
 trigger_map:
-- push_branch: "*"
+- push_branch: "master"
   workflow: branch-validation
 - pull_request_source_branch: "*"
   workflow: branch-validation
