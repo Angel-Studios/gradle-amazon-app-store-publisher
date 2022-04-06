@@ -21,7 +21,11 @@ workflows:
             set -e
             # debug log
             set -x
-
+            # Tag if needed
+            ./scripts/tag_branch.sh
+            # Set version
+            export PROJECT_VERSION=$(git tag --points-at HEAD | sort -V | tail -n1)
+            # Build and deploy
             ./gradlew publishPlugins
   branch-validation:
     steps:
@@ -37,14 +41,32 @@ workflows:
             set -e
             # debug log
             set -x
-
+            # Build
             ./gradlew build
+  release-cut:
+    steps:
+    - activate-ssh-key@4:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone@6: {}
+    - script@1:
+        title: Release Cut
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+            # Tag
+            ./scripts/tag_release.sh
+            # Cut release
+            ./scripts/cut_release.sh
 meta:
   bitrise.io:
     stack: linux-docker-android-20.04
     machine_type_id: standard
 trigger_map:
-- push_branch: "*"
+- push_branch: "master"
   workflow: branch-validation
 - pull_request_source_branch: "*"
   workflow: branch-validation

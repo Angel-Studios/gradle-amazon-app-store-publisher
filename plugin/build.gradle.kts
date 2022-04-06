@@ -12,7 +12,6 @@ plugins {
 val catalogs = extensions.getByType<VersionCatalogsExtension>()
 
 group = "io.github.angel-studios"
-version = "1.0.0"
 
 val pluginDisplayName = "Amazon App Store Deploy Plugin"
 val pluginDescription = "Plugin for delivering APK artifacts to the Amazon App Store as new Edits."
